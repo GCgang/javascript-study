@@ -14,7 +14,7 @@ console.log(hex);
 
 console.log(0 / 123);   0
 console.log(123 / 0); // Infinity
-console.log(123 / -1); // -Infinity
+console.log(123 / -0); // -Infinity
 console.log(123 / 'text'); // NaN(Not a Number)
 
 // Number(value) 처럼 함수로 사용시 다른 값을 Number 타입으로 변환한다
