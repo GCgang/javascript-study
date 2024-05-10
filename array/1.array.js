@@ -41,7 +41,6 @@ for (let i=0; i < arr1.length; ++i) {
 }
 
 
-
 // Methods
 const fruits = ['🥭', '🍉', '🍓'];
 
@@ -136,18 +135,6 @@ console.log(nestedArr.flat(3));
 // ]
 console.log(nestedArr); // [ 1, 2, [ 3, 4, [ 5, 6, [Array] ] ] ]
 
-// 배열 요소 정렬
-const num = [9, 8, 7, 6, 5, 4];
-num.sort();
-console.log(num); // [ 4, 5, 6, 7, 8, 9 ] 오름차순
-num.sort((a, b) => b - a);
-console.log(num); // [ 9, 8, 7, 6, 5, 4 ] 내림차순
-const str = ['a', 'A', 'B', 'C', 'c', 'b'];
-str.sort();
-console.log(str); // [ 'A', 'B', 'C', 'a', 'b', 'c' ] 오름차순
-str.sort((a, b) => a > b ? -1 : 1);
-console.log(str); // [ 'c', 'b', 'a', 'C', 'B', 'A' ] 내림차순
-
 // 특정한 값으로 배열 채우기
 let array = new Array(5).fill(0);
 console.log(array); // [ 0, 0, 0, 0, 0 ]
@@ -171,17 +158,6 @@ text = arr5.join(' | ');
 console.log(text); // a | b | c | d | 1 | 2 | 3,4
 
 
-// 배열의 모든 요소에 함수를 호출하고 새로운 배열로 반환
-let arr6 = [1, 2, 3, 4, 5];
-let doubled = arr6.map(x => x * 2);
-console.log(arr6); // [ 1, 2, 3, 4, 5 ]
-console.log(doubled); // [ 2, 4, 6, 8, 10 ]
-
-// 특정 조건을 만족하는 모든 요소를 새 배열로 반환
-let arr7 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-let evenArr = arr7.filter(x => x % 2 === 0);
-console.log(arr7); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
-console.log(evenArr); // [ 2, 4, 6, 8 ]
 
 
 
