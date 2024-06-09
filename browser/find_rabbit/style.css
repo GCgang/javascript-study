@@ -1,0 +1,16 @@
+body {
+    background-color: black;
+}
+
+.tag {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.scroll-into-button {
+    margin-bottom: 1rem;
+    background-color: tomato;
+    color: antiquewhite;
+}
