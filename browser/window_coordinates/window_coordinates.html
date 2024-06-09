@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Coordinates</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        
+        .buttons {
+            position: fixed;
+            top: 0;
+            right: 0;
+        }
+
+        button {
+            width: 150px;
+            height: 30px;
+            font-size: 1rem;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: beige;
+            margin: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .coordinate {
+            background-color: aqua;
+        }
+
+    </style>
+</head>
+<body>
+    <aside class="buttons">
+        <button class="scroll-by-button">Scroll by 100px(y)</button>
+        <button class="scroll-to-button">Scroll to 100px(y)</button>
+        <button class="scroll-into-button">Scroll into special</button>
+    </aside>
+    <div></div>
+    <div></div>
+    <div class="coordinate"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        document.addEventListener('click', (event) => {
+            let classList = event.target.classList;
+            if (classList.contains('coordinate')) {
+                displayCoordinate(event);
+            }
+            else if (classList.contains('scroll-by-button')) {
+                window.scrollBy(0, 100);
+            }
+            else if (classList.contains('scroll-to-button')) {
+                window.scrollTo(0, 100);
+            }
+            else if (classList.contains('scroll-into-button')) {
+                const special = document.querySelector('.coordinate');
+                special.scrollIntoView();
+            }
+        });
+        function displayCoordinate(event) {
+            const elem = document.querySelector('.coordinate');
+            if (elem.dataset.showing === 'true') {
+                elem.innerHTML = '';
+                elem.style.backgroundColor = 'aqua';
+                elem.dataset.showing = 'false';
+            } else {
+                const rect = elem.getBoundingClientRect();
+                console.log(rect);
+                let output = '';
+                const properties = ['x', 'y', 'left', 'top', 'bottom', 'right'];
+
+                properties.forEach(key => {
+                    if (typeof rect[key] === 'number') {
+                        output += `${key}: ${rect[key]}<br/>`;
+                    }
+                });
+                output += `clientX: ${event.clientX} clientY: ${event.clientY}<br/>`;
+                output += `pageX: ${event.pageX} pageY: ${event.pageY}<br/>`;
+                elem.innerHTML = output;
+                elem.style.backgroundColor = 'tomato';
+                elem.dataset.showing = 'true';
+            }
+        }
+    </script>
+</body>
+</html>
