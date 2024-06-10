@@ -2,19 +2,20 @@ const horizontal = document.querySelector('.line-horizontal');
 const vertical = document.querySelector('.line-vertical');
 const target = document.querySelector('.target');
 const screenLog = document.getElementById('screen-log');
+const targetRect = target.getBoundingClientRect();
+const targetHalfWidth = targetRect.width / 2;
+const targetHalfHeight = targetRect.height / 2;
 
-document.addEventListener('mousemove', (event) => {
+document.addEventListener('mousemove', (event) => {        
     const mouseX = event.clientX;
     const mouseY = event.clientY;
 
-    horizontal.style.top = `${mouseY}px`
-    vertical.style.left = `${mouseX}px`
-    target.style.top = `${mouseY}px`
-    target.style.left = `${mouseX}px`
-    screenLog.style.top = `${mouseY}px`
-    screenLog.style.left = `${mouseX}px`
+    horizontal.style.transform = `translateY(${mouseY}px)`
+    vertical.style.transform = `translateX(${mouseX}px)`
+    target.style.transform = `translate(${mouseX - targetHalfWidth}px, ${mouseY - targetHalfHeight}px)`
+    screenLog.style.transform = `translate(${mouseX+30}px, ${mouseY+20}px)`
 
     screenLog.innerHTML = `
-        ${event.clientX}px ${event.clientY}px
+        ${mouseX}px ${mouseY}px
     `
 })
