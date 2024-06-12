@@ -20,11 +20,9 @@ function onAdd(event) {
         input.focus();
         return ;
     }
-
     const itemRow = createItem(text);
-
     items.appendChild(itemRow);
-
+    itemRow.scrollIntoView({ block: 'center' });
     input.value = '';
     input.focus();
 }
