@@ -4,10 +4,12 @@ import { v4 as uuidv4 } from 'https://cdn.jsdelivr.net/npm/uuid@latest/dist/esm-
 const items = document.querySelector('.items');
 const input = document.querySelector('.footer__input');
 const addBtn = document.querySelector('.footer__add');
+const form = document.querySelector('.footer__form');
 
-addBtn.addEventListener('click', (event) => {
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
     onAdd();
-});
+})
 
 items.addEventListener('click', (event) => {
     const id = event.target.dataset?.id;
@@ -17,12 +19,6 @@ items.addEventListener('click', (event) => {
         toDeleted?.remove();
     }
 })
-
-input.addEventListener('keypress', (event) => {
-    if (event.key === 'Enter') {
-        onAdd();
-    }
-});
 
 function onDelete(event) {
     event.target.closest('.item__delete')?.closest('li')?.remove();
